@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.pink,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -49,17 +49,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  void _fun() {}
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  // void _incrementCounter() {
+  //setState(() {
+  // This call to setState tells the Flutter framework that something has
+  // changed in this State, which causes it to rerun the build method below
+  // so that the display can reflect the updated values. If we changed
+  // _counter without calling setState(), then the build method would not be
+  // called again, and so nothing would appear to happen.
+  //  _counter++;
+//});
+//}
 
   @override
   Widget build(BuildContext context) {
@@ -95,21 +96,45 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Container(
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                  Container(
+                      margin: EdgeInsets.fromLTRB(50, 0, 0, 10),
+                      child: Text("LOGIN", style: TextStyle(fontSize: 15)))
+                ])),
+            Container(
+                margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
+                child: const TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Email',
+                  ),
+                )),
+            Container(
+                margin: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                child: const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                  ),
+                )),
+            Container(
+                height: 50,
+                width: 400,
+                margin: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                child: ElevatedButton(
+                    onPressed: _fun,
+                    child: Text("LOGIN"),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.pink, onPrimary: Colors.white)))
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
