@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -71,11 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -102,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                   Container(
                       margin: EdgeInsets.fromLTRB(50, 0, 0, 10),
-                      child: Text("LOGIN", style: TextStyle(fontSize: 15)))
+                      child: Text("LOGIN", style: TextStyle(fontSize: 20)))
                 ])),
             Container(
                 margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
@@ -127,14 +124,95 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 400,
                 margin: EdgeInsets.fromLTRB(50, 10, 50, 0),
                 child: ElevatedButton(
-                    onPressed: _fun,
-                    child: Text("LOGIN"),
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.pink, onPrimary: Colors.white)))
+                  onPressed: _fun,
+                  child: Text("LOGIN"),
+                  // style: ElevatedButton.styleFrom(
+                  //   primary: Colors.pink, onPrimary: Colors.white)))
+                )),
+            Container(
+                margin: EdgeInsets.fromLTRB(50, 30, 50, 0),
+                child: Row(children: <Widget>[
+                  Expanded(child: Divider()),
+                  Container(
+                    decoration: BoxDecoration(
+                        //  color: Color.fromARGB(255, 217, 217, 217),
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: const Text("OR"),
+                  ),
+                  Expanded(child: Divider()),
+                ])),
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: SignInButton(
+                        Buttons.Google,
+                        onPressed: () {},
+                      )),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: SignInButton(
+                        Buttons.Facebook,
+                        onPressed: () {},
+                      )),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                      child: SignInButton(
+                        Buttons.Email,
+                        onPressed: () {},
+                      ))
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      child: Text("Need an account?",
+                          style: TextStyle(color: Colors.grey)),
+                    ),
+                    Container(
+                        child: InkWell(
+                      onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => Screen2() as Widget))),
+                      child: Text("SIGNUP",
+                          style: TextStyle(
+                            fontSize: 15,
+                            decoration: TextDecoration.underline,
+                            color: Colors.grey,
+                          )),
+                    )),
+                  ]),
+            )
           ],
         ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class Screen2 extends StatelessWidget {
+  const Screen2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SafeArea(
+            child: Center(
+                child: InkWell(
+      onTap: () {},
+      child: Container(
+        child: Text("Screen 2"),
+      ),
+    ))));
   }
 }
