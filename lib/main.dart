@@ -282,7 +282,7 @@ class _Screen2State extends State<Screen2> {
             SizedBox(
               height: 10,
             ),
-            Container(
+            /* Container(
               width: 600,
               margin: EdgeInsets.fromLTRB(40, 0, 0, 10),
               child: Row(
@@ -309,9 +309,27 @@ class _Screen2State extends State<Screen2> {
                       )))
                 ],
               ),
-            ),
+            ), */
             Container(
-                margin: EdgeInsets.fromLTRB(50, 0, 50, 0),
+                margin: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                child: const TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'First Name',
+                  ),
+                )),
+            Container(
+                margin: EdgeInsets.fromLTRB(50, 10, 50, 0),
+                child: const TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Last Name',
+                  ),
+                )),
+            Container(
+                margin: EdgeInsets.fromLTRB(50, 10, 50, 0),
                 child: const TextField(
                   obscureText: false,
                   decoration: InputDecoration(
@@ -435,7 +453,7 @@ class Screen3 extends StatefulWidget {
 
 class _Screen3State extends State<Screen3> {
   int _counter = 0;
-  void _fun() {}
+  void _fun222() {}
 
   // void _incrementCounter() {
   //setState(() {
@@ -475,24 +493,63 @@ class _Screen3State extends State<Screen3> {
           // center the children vertically; the main axis here is the vertical
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              height: 100,
-              width: double.infinity,
-              padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.pink, borderRadius: BorderRadius.circular(10)),
-              child: Text(
-                "Before we let you go we need some of your information",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                ),
+              margin: EdgeInsets.fromLTRB(0, 200, 0, 10),
+              child: Icon(
+                Icons.fingerprint_outlined,
+                size: 100,
+                color: Colors.pink,
               ),
-            )
+            ),
+            Container(
+                child: Text(
+              "Enable Fingerprint",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            )),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+                width: 200,
+                height: 100,
+                child: Text(
+                  "If you enable touch ID,you don't need to enter your password when you login",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                )),
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              width: 300,
+              height: 50,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15), color: Colors.pink),
+              child: ElevatedButton(
+                onPressed: () => _fun222(),
+                child: Text("Continue"),
+              ),
+            ),
+            Container(
+                width: 300,
+                height: 50,
+                margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: ElevatedButton(
+                    onPressed: () => null,
+                    child: Text("Not Now"),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      onPrimary: Colors.grey,
+                    ))),
           ],
         ),
       ),
