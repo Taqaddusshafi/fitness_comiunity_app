@@ -453,7 +453,10 @@ class Screen3 extends StatefulWidget {
 
 class _Screen3State extends State<Screen3> {
   int _counter = 0;
-  void _fun222() {}
+  void _fun222() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: ((context) => const Screen4() as Widget)));
+  }
 
   // void _incrementCounter() {
   //setState(() {
@@ -518,6 +521,179 @@ class _Screen3State extends State<Screen3> {
                 height: 100,
                 child: Text(
                   "If you enable touch ID,you don't need to enter your password when you login",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                )),
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              width: 300,
+              height: 50,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15), color: Colors.pink),
+              child: ElevatedButton(
+                onPressed: () => _fun222(),
+                child: Text("Continue"),
+              ),
+            ),
+            Container(
+                width: 300,
+                height: 50,
+                margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: ElevatedButton(
+                    onPressed: () => null,
+                    child: Text("Not Now"),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      onPrimary: Colors.grey,
+                    ))),
+          ],
+        ),
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+class Screen4 extends StatefulWidget {
+  const Screen4({super.key});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  @override
+  State<Screen4> createState() => _Screen4State();
+}
+
+class _Screen4State extends State<Screen4> {
+  int _counter = 0;
+  void _fun222() {}
+
+  // void _incrementCounter() {
+  //setState(() {
+  // This call to setState tells the Flutter framework that something has
+  // changed in this State, which causes it to rerun the build method below
+  // so that the display can reflect the updated values. If we changed
+  // _counter without calling setState(), then the build method would not be
+  // called again, and so nothing would appear to happen.
+  //  _counter++;
+//});
+//}
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Invoke "debug painting" (press "p" in the console, choose the
+          // "Toggle Debug Paint" action from the Flutter Inspector in Android
+          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+          // to see the wireframe for each widget.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+                margin: EdgeInsets.fromLTRB(0, 200, 0, 0),
+                child: Text(
+                  "Which one are you?",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                )),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: IconButton(
+                        icon: const Icon(Icons.female),
+                        iconSize: 50,
+                        color: Colors.green,
+                        onPressed: () {},
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white),
+                      child: IconButton(
+                        icon: const Icon(Icons.male),
+                        iconSize: 50,
+                        color: Colors.yellow,
+                        onPressed: () {},
+                      ),
+                    )
+                  ]),
+            ),
+            /*  Container(
+              margin: EdgeInsets.fromLTRB(0, 200, 0, 10),
+              child: Icon(
+                Icons.fingerprint_outlined,
+                size: 100,
+                color: Colors.pink,
+              ),
+            ), */
+            SizedBox(
+              height: 10,
+            ),
+            /*  Container(
+                child: Text(
+              "Enable Fingerprint",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            )),
+            SizedBox(
+              height: 10,
+            ), */
+            Container(
+                width: 200,
+                height: 100,
+                child: Text(
+                  "To give you a better experience we need to know your gender",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.grey,
