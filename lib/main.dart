@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -53,6 +55,60 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   void _fun() {}
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 5),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => MyHomePage2())));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+        body: Center(
+      child: Container(
+        child: Container(
+          child: new Image.asset(
+            'assets/images/logo.png',
+            height: 200,
+            width: 200,
+          ),
+        ),
+      ),
+      // Center is a layout widget. It takes a single child and positions it
+    ));
+    // This trailing comma makes auto-formatting nicer for build method
+  }
+}
+
+class MyHomePage2 extends StatefulWidget {
+  const MyHomePage2({
+    super.key,
+  });
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  @override
+  State<MyHomePage2> createState() => _MyHomePageState2();
+}
+
+class _MyHomePageState2 extends State<MyHomePage2> {
+  int _counter = 0;
+  void _fun() {}
 
   // void _incrementCounter() {
   //setState(() {
@@ -95,6 +151,16 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              child: new Image.asset(
+                'assets/images/ptlogo.png',
+                height: 100,
+                width: 100,
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
             Container(
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -164,7 +230,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Container(
                       margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                       child: SignInButton(
-                        Buttons.LinkedIn,
+                        Buttons.Apple,
                         onPressed: () {},
                       ))
                 ],
@@ -271,6 +337,16 @@ class _Screen2State extends State<Screen2> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              child: new Image.asset(
+                'assets/images/ptlogo.png',
+                height: 100,
+                width: 100,
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
             Container(
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -391,8 +467,8 @@ class _Screen2State extends State<Screen2> {
                   Container(
                       margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                       child: SignInButton(
-                        Buttons.LinkedIn,
-                        text: "Sign up with LinkedIn",
+                        Buttons.Apple,
+                        text: "Sign up with Apple",
                         onPressed: () {},
                       ))
                 ],
@@ -499,7 +575,14 @@ class _Screen3State extends State<Screen3> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.fromLTRB(0, 200, 0, 10),
+              child: new Image.asset(
+                'assets/images/ptlogo.png',
+                height: 100,
+                width: 100,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.fromLTRB(0, 100, 0, 10),
               child: Icon(
                 Icons.fingerprint_outlined,
                 size: 100,
@@ -580,7 +663,10 @@ class Screen4 extends StatefulWidget {
 
 class _Screen4State extends State<Screen4> {
   int _counter = 0;
-  void _fun222() {}
+  void _fun222() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: ((context) => const Screen5() as Widget)));
+  }
 
   // void _incrementCounter() {
   //setState(() {
@@ -623,7 +709,14 @@ class _Screen4State extends State<Screen4> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-                margin: EdgeInsets.fromLTRB(0, 200, 0, 0),
+              child: new Image.asset(
+                'assets/images/ptlogo.png',
+                height: 100,
+                width: 100,
+              ),
+            ),
+            Container(
+                margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
                 child: Text(
                   "Which one are you?",
                   style: TextStyle(
@@ -631,7 +724,7 @@ class _Screen4State extends State<Screen4> {
                   ),
                 )),
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             Container(
               child: Row(
@@ -644,14 +737,14 @@ class _Screen4State extends State<Screen4> {
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white),
                       child: IconButton(
-                        icon: const Icon(Icons.female),
+                        icon: const Icon(Icons.male_outlined),
                         iconSize: 50,
                         color: Colors.green,
                         onPressed: () {},
                       ),
                     ),
                     SizedBox(
-                      width: 20,
+                      width: 30,
                     ),
                     Container(
                       width: 100,
@@ -660,7 +753,7 @@ class _Screen4State extends State<Screen4> {
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white),
                       child: IconButton(
-                        icon: const Icon(Icons.male),
+                        icon: const Icon(Icons.female_outlined),
                         iconSize: 50,
                         color: Colors.yellow,
                         onPressed: () {},
@@ -677,7 +770,7 @@ class _Screen4State extends State<Screen4> {
               ),
             ), */
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             /*  Container(
                 child: Text(
@@ -712,20 +805,213 @@ class _Screen4State extends State<Screen4> {
                 child: Text("Continue"),
               ),
             ),
+          ],
+        ),
+      ),
+      // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+class Screen5 extends StatefulWidget {
+  const Screen5({super.key});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  @override
+  State<Screen5> createState() => _Screen5State();
+}
+
+class _Screen5State extends State<Screen5> {
+  int _counter = 0;
+
+  void _fun222() {}
+  bool valuefirst = false;
+  bool valuesecond = false;
+  bool valuethird = false;
+  bool valuefourt = false;
+
+  // void _incrementCounter() {
+  //setState(() {
+  // This call to setState tells the Flutter framework that something has
+  // changed in this State, which causes it to rerun the build method below
+  // so that the display can reflect the updated values. If we changed
+  // _counter without calling setState(), then the build method would not be
+  // called again, and so nothing would appear to happen.
+  //  _counter++;
+//});
+//}
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        child: Column(
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Invoke "debug painting" (press "p" in the console, choose the
+          // "Toggle Debug Paint" action from the Flutter Inspector in Android
+          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+          // to see the wireframe for each widget.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
             Container(
-                width: 300,
+              child: new Image.asset(
+                'assets/images/ptlogo.png',
+                height: 100,
+                width: 100,
+              ),
+            ),
+            Container(
                 height: 50,
-                margin: EdgeInsets.fromLTRB(0, 10, 0, 5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: ElevatedButton(
-                    onPressed: () => null,
-                    child: Text("Not Now"),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: Colors.grey,
-                    ))),
+                width: 150,
+                margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                child: Text(
+                  "Let us know how we can help you",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                )),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white),
+                      margin: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                      child: CheckboxListTile(
+                        title: const Text('Weight loss'),
+                        value: this.valuefirst,
+                        onChanged: (value) {
+                          setState(() {
+                            valuefirst = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white),
+                      margin: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                      child: CheckboxListTile(
+                        title: const Text('Better sleep habit'),
+                        value: this.valuesecond,
+                        onChanged: (value) {
+                          setState(() {
+                            valuesecond = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white),
+                      margin: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                      child: CheckboxListTile(
+                        title: const Text('Track my nutrition'),
+                        value: this.valuethird,
+                        onChanged: (value) {
+                          setState(() {
+                            valuethird = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.white),
+                      margin: EdgeInsets.fromLTRB(100, 10, 100, 10),
+                      child: CheckboxListTile(
+                        title: const Text('Improve overall fitness'),
+                        value: this.valuefourt,
+                        onChanged: (value) {
+                          setState(() {
+                            valuefourt = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                  ]),
+            ),
+            /*  Container(
+              margin: EdgeInsets.fromLTRB(0, 200, 0, 10),
+              child: Icon(
+                Icons.fingerprint_outlined,
+                size: 100,
+                color: Colors.pink,
+              ),
+            ), */
+            SizedBox(
+              height: 30,
+            ),
+            /*  Container(
+                child: Text(
+              "Enable Fingerprint",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            )),
+            SizedBox(
+              height: 10,
+            ), */
+            SizedBox(
+              height: 80,
+            ),
+            Container(
+              width: 300,
+              height: 50,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15), color: Colors.pink),
+              child: ElevatedButton(
+                onPressed: () => _fun222(),
+                child: Text("Continue"),
+              ),
+            ),
           ],
         ),
       ),
