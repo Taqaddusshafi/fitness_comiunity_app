@@ -484,20 +484,21 @@ class _Screen2State extends State<Screen2> {
                           style: TextStyle(color: Colors.grey)),
                     ),
                     Container(
+                        margin: EdgeInsets.all(20),
                         child: InkWell(
-                      onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => MyHomePage(
-                                    title: "FirstScreen",
-                                  ) as Widget))),
-                      child: Text("LOGIN",
-                          style: TextStyle(
-                            fontSize: 15,
-                            decoration: TextDecoration.underline,
-                            color: Colors.grey,
-                          )),
-                    )),
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => MyHomePage(
+                                        title: "FirstScreen",
+                                      ) as Widget))),
+                          child: Text("LOGIN",
+                              style: TextStyle(
+                                fontSize: 15,
+                                decoration: TextDecoration.underline,
+                                color: Colors.grey,
+                              )),
+                        )),
                   ]),
             )
           ],
@@ -833,7 +834,11 @@ class Screen5 extends StatefulWidget {
 class _Screen5State extends State<Screen5> {
   int _counter = 0;
 
-  void _fun222() {}
+  void _fun222() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: ((context) => const Screen6() as Widget)));
+  }
+
   bool valuefirst = false;
   bool valuesecond = false;
   bool valuethird = false;
@@ -1017,5 +1022,301 @@ class _Screen5State extends State<Screen5> {
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class Screen6 extends StatefulWidget {
+  const Screen6({super.key});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  @override
+  State<Screen6> createState() => _Screen6State();
+}
+
+class _Screen6State extends State<Screen6> {
+  int _counter = 0;
+
+  void _fun222() {}
+
+  // void _incrementCounter() {
+  //setState(() {
+  // This call to setState tells the Flutter framework that something has
+  // changed in this State, which causes it to rerun the build method below
+  // so that the display can reflect the updated values. If we changed
+  // _counter without calling setState(), then the build method would not be
+  // called again, and so nothing would appear to happen.
+  //  _counter++;
+//});
+//}
+
+  @override
+  Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    return Scaffold(
+      body: Column(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
+        // Column is also a layout widget. It takes a list of children and
+        // arranges them vertically. By default, it sizes itself to fit its
+        // children horizontally, and tries to be as tall as its parent.
+        //
+        // Invoke "debug painting" (press "p" in the console, choose the
+        // "Toggle Debug Paint" action from the Flutter Inspector in Android
+        // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+        // to see the wireframe for each widget.
+        //
+        // Column has various properties to control how it sizes itself and
+        // how it positions its children. Here we use mainAxisAlignment to
+        // center the children vertically; the main axis here is the vertical
+        // axis because Columns are vertical (the cross axis would be
+        // horizontal).
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+              child: Text(
+            "MY Plan",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 30,
+            ),
+          )),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                      margin: EdgeInsets.fromLTRB(30, 20, 20, 0),
+                      child: Text(
+                        "Daily  Plan",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      )),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(160, 20, 0, 0),
+                      child: Text(
+                        "Static",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      )),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ]),
+          ),
+          /*  Container(
+              margin: EdgeInsets.fromLTRB(0, 200, 0, 10),
+              child: Icon(
+                Icons.fingerprint_outlined,
+                size: 100,
+                color: Colors.pink,
+              ),
+            ), */
+          SizedBox(
+            width: 10,
+          ),
+          Container(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                      margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Color.fromARGB(255, 243, 203, 203)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            margin: EdgeInsets.all(10),
+                            child: Text(
+                              "Calories",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            margin: EdgeInsets.all(10),
+                            child: Text("720", style: TextStyle(fontSize: 20)),
+                          ),
+                          Container(
+                            margin: EdgeInsets.all(10),
+                            child: Text("Kcal"),
+                          ),
+                        ],
+                      )),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(10, 20, 20, 0),
+                    height: 160,
+                    width: 160,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color.fromARGB(255, 202, 214, 249)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            "Steps",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text("1000", style: TextStyle(fontSize: 20)),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text("Steps"),
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    height: 160,
+                    width: 160,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color.fromARGB(255, 219, 213, 248)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            "Sleep",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            "7",
+                            style: TextStyle(fontSize: 30),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text("Hours"),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.fromLTRB(10, 0, 20, 0),
+                    height: 160,
+                    width: 160,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Color.fromARGB(255, 250, 236, 236)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            "Water",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text(
+                            "2",
+                            style: TextStyle(fontSize: 30),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.all(10),
+                          child: Text("Liters"),
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          /*  Container(
+                child: Text(
+              "Enable Fingerprint",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            )),
+            SizedBox(
+              height: 10,
+            ), */
+          SizedBox(
+            height: 80,
+          ),
+          Container(
+            width: 300,
+            height: 50,
+          ),
+        ],
+      ),
+    );
+    // This trailing comma makes auto-formatting nicer for build methods.
   }
 }
